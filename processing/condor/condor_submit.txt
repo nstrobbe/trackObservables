@@ -1,0 +1,13 @@
+universe = vanilla
+Executable = run_signal.sh
+Should_Transfer_Files = YES
+WhenToTransferOutput = ON_EXIT
+Transfer_Input_Files = $ENV(CMSSW_BASE)/src/trackObservables/processing/anaSubstructure
+Output = myjob_$(Cluster)_$(Process).stdout
+Error = myjob_$(Cluster)_$(Process).stderr
+Log = myjob_$(Cluster)_$(Process).log
+notify_user = ${LOGNAME}@FNAL.GOV
+x509userproxy = $ENV(X509_USER_PROXY)
+
+Arguments = zpll.root
+Queue 1
